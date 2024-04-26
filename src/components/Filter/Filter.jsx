@@ -1,20 +1,26 @@
 import React from 'react';
-import { FormFilter, LabelFilter } from './Filter.styled';
-import { Input } from '../FormList/FormList.styled';
+import css from './Filter.module.css';
+import PropTypes from 'prop-types';
 
-const Filter = ({ value, onChange }) => {
+export const Filter = ({ filter, setFilter }) => {
+  const handleFilterChange = e => setFilter(e.target.value);
+
   return (
-    <FormFilter>
-      <LabelFilter>
-        <Input
-          type="name"
-          value={value}
-          onChange={onChange}
-          placeholder="Please enter a name to search"
-        />
-      </LabelFilter>
-    </FormFilter>
+    <div className={css.formFilter}>
+      <p className={css.labelFilter}>Find Contacts by Name</p>
+      <input
+        className={css.inputFilter}
+        type="text"
+        name="filter"
+        placeholder="Search by name"
+        value={filter}
+        onChange={handleFilterChange}
+      />
+    </div>
   );
 };
 
-export default Filter;
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+};

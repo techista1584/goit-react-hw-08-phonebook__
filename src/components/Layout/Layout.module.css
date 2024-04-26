@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  gap: 32px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.45);
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  line-height: 30px;
+  padding: 5px;
+  text-align: center;
+  align-content: center;
+  margin: 10px;
+  font-size: 24px;
+  color: black;
+}
+

@@ -1,0 +1,36 @@
+.formFilter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.labelFilter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: gray;
+}
+
+.inputFilter {
+  width: 350px;
+  margin-bottom: 10px;
+  background: white;
+  border: var(--none-border);
+  outline: none;
+  padding: 10px;
+  font-size: var(--s-font-size);
+  color: var(--black-color);
+  text-shadow: var(--text-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: var(--text-shadow);
+  transition: border 0.3s ease-in-out;
+}
+
+.inputFilter:focus,
+.inputFilter:hover {
+  border: 1.65px solid pink;
+  background-color: floralwhite;
+}

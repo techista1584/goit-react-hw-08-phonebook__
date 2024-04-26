@@ -1,17 +1,17 @@
 import React from 'react';
-import { Container } from './Layout.styled';
+import css from './Layout.module.css';
 import PropTypes from 'prop-types';
 
- const Layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <Container>
+    <div className={css.container}>
       <main>{children}</main>
-    </Container>
+    </div>
   );
 };
 
 Layout.propTypes = {
-   children: PropTypes.any.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 export default Layout;
