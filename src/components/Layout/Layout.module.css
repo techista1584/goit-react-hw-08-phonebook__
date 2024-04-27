@@ -6,7 +6,6 @@
   color: black;
   flex-direction: column;
   gap: 32px;
-  padding: 10px;
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.45);
 }

@@ -1,7 +1,12 @@
 .listWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     list-style: none;
     padding: 0;
     margin: 0;
+    align-items: stretch;
+
 }
 
 .contactListItem {
@@ -9,6 +14,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 5px;
+    text-align: left;
 }
 
 .btnDelete {
@@ -26,3 +32,4 @@
     background-color: rgba(43, 59, 59, 0.848);
     color: pink;
 }
+

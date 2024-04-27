@@ -1,6 +1,5 @@
 .Title2 {
-    padding:10px;
-    margin-top: 10px;
+    padding:15px;
 }
 
 .Title {
@@ -9,7 +8,7 @@
     align-items: center;
     border-radius: 15px;
     line-height: 30px;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     align-content: center;
     font-size: 24px;
