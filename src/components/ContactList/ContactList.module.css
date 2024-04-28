@@ -6,6 +6,8 @@
     align-items: stretch;
     border: none;
     padding: 10px 10px;
+    max-height: 500px; /* Adjust as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
 }
 
 .list {
