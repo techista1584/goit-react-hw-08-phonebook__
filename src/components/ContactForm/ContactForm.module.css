@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: 32px;
   padding: 5px;
+  position: sticky;
+  z-index: 1000;
 }
 
 .Title {
