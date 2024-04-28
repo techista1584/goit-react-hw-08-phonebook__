@@ -1,5 +1,7 @@
 .Title2 {
     padding:15px 5px;
+    position: sticky;
+    top: 0; 
 }
 
 .Title {
