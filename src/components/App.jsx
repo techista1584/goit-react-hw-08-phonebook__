@@ -42,7 +42,6 @@ export const App = () => {
 
   return (
     <Layout>
-      // <h1 className={css.Title}>Phonebook</h1>
         <ContactForm addContact={handleAddContact} contacts={contacts} />
 
       <h2 className={css.Title2}>Contacts</h2>
