@@ -7,7 +7,6 @@
   padding: 5px;
 }
 
-// added from Layout.module.css for the header Phonebook
 .Title {
   display: flex;
   justify-content: center;
