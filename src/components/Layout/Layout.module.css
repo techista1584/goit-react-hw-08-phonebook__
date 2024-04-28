@@ -8,6 +8,8 @@
   gap: 32px;
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.45);
+  position: sticky;
+  z-index: 1000;
 }
 
 .Title {
