@@ -7,7 +7,6 @@ export const Filter = ({ filter, setFilter }) => {
 
   return (
     <div className={css.formFilter}>
-      <p className={css.labelFilter}>Find Contacts by Name</p>
       <input
         className={css.inputFilter}
         type="text"
