@@ -9,13 +9,6 @@
   z-index:1000;
 }
 
-.labelFilter {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  color: gray;
-}
-
 .inputFilter {
   width: 280px;
   margin-bottom: 10px;
