@@ -6,7 +6,7 @@
     align-items: stretch;
     border: none;
     padding: 10px 10px;
-    max-height: 500px; /* Adjust as needed */
+    max-height: 280px; /* Adjust as needed */
     overflow-y: auto; /* Enables vertical scrolling */
 }
 
@@ -17,6 +17,7 @@
     justify-content: space-between;
     margin: 3px;
     gap: 80px;
+
 }
 
 .paragraf {

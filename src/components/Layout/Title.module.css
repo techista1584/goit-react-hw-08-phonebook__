@@ -1,8 +1,8 @@
 .Title2 {
-    padding:15px 5px;
-    position: sticky;
-    top: 0; 
-}
+    padding:0 10px 15px 15px;
+    /* position: sticky;
+    top: 20; */
+} 
 
 .Title {
     display: flex;
