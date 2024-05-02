@@ -27,6 +27,6 @@
 
 .inputFilter:focus,
 .inputFilter:hover {
-  border: 1.65px solid pink;
+  border: 1px solid pink;
   background-color: floralwhite;
 }

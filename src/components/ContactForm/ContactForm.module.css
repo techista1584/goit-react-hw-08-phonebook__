@@ -52,7 +52,7 @@
 
 .Input:focus,
 .Input:hover {
-  border: 1.65px solid pink;
+  border: 1px solid pink;
 }
 
 /* Button.module.css */
