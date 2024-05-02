@@ -1,5 +1,6 @@
 // src/redux/slices/contactsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchContacts, addContacts } from './operations';
 
 // Define initial state for contacts
 const initialContactsState = {
@@ -7,7 +8,7 @@ const initialContactsState = {
   isLoading: false,
   error: null,
 }
-
+  
 // Create slice for contacts
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -15,19 +16,31 @@ export const contactsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addMatcher(action => action.type.endsWith('/pending'), state => {
+      .addCase(fetchContacts.pending, state => {
         state.isLoading = true;
       })
-      .addMatcher(action => action.type.endsWith('/fulfilled'), (state, action) => {
+      .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.contacts = action.payload;
       })
-      .addMatcher(action => action.type.endsWith('/rejected'), (state, action) => {
+      .addCase(fetchContacts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(addContacts.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(addContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.contacts.push(action.payload);
+      })
+      .addCase(addContacts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });
-  }
+    }
 })
 
 // Export actions
