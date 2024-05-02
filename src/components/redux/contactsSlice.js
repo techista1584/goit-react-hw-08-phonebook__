@@ -1,6 +1,6 @@
 // src/redux/slices/contactsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContacts } from './operations';
+import { fetchContacts, addContacts, deleteContacts } from './operations';
 
 // Define initial state for contacts
 const initialContactsState = {
@@ -37,6 +37,19 @@ export const contactsSlice = createSlice({
         state.contacts.push(action.payload);
       })
       .addCase(addContacts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteContacts.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== action.payload
+        );
+      })
+      .addCase(deleteContacts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });

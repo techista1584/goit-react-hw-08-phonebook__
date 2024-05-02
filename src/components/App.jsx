@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts, addContacts} from './redux/operations';
+import { fetchContacts, addContacts, deleteContacts} from './redux/operations';
 import { getContacts, getFilter } from './redux/selectors';
 import Layout  from './Layout/Layout';
 import { ContactForm } from './ContactForm/ContactForm';
@@ -27,7 +27,7 @@ export const App = () => {
 
   const handleDeleteContact = id => {
     // Placeholder for future Redux action
-    // dispatch(deleteContact(id));
+    dispatch(deleteContacts(id));
   };
 
   const handleSetFilter = newFilter => {
