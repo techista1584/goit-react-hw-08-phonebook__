@@ -1,7 +1,9 @@
+// App.jsx
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts, addContacts, deleteContacts} from './redux/operations';
+import { fetchContacts, addContacts, deleteContacts } from './redux/operations'; // Removed setFilter
 import { getContacts, getFilter } from './redux/selectors';
+import { setFilter } from './redux/filterSlice'; // Added this line
 import Layout  from './Layout/Layout';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
@@ -13,26 +15,20 @@ export const App = () => {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
-  console.log('contacts', contacts);
-
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-
   const handleAddContact = newContact => {
-    // Placeholder for future Redux action
     dispatch(addContacts(newContact));
   };
 
   const handleDeleteContact = id => {
-    // Placeholder for future Redux action
     dispatch(deleteContacts(id));
   };
 
   const handleSetFilter = newFilter => {
-    // Placeholder for future Redux dispatch to update filter
-    // dispatch(setFilter(newFilter));
+    dispatch(setFilter(newFilter)); // Dispatch setFilter action
   };
 
   // Calculate filtered contacts directly within the App component
@@ -43,7 +39,6 @@ export const App = () => {
   return (
     <Layout>
         <ContactForm addContact={handleAddContact} contacts={contacts} />
-
       <h2 className={css.Title2}>Contacts</h2>
       <Filter filter={filter} setFilter={handleSetFilter} />
       <ContactList

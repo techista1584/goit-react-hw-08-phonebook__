@@ -10,7 +10,7 @@ export const filterSlice = createSlice({
   initialState: initialFilterState,
   reducers: {
     setFilter(state, action) {
-      console.log('Setting filter:', action.payload); // Debugging line
+     
       return action.payload;
     },
   },
