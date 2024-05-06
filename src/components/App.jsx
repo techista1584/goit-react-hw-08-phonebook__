@@ -1,50 +1,62 @@
-// App.jsx
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts, addContacts, deleteContacts } from './redux/operations'; // Removed setFilter
-import { getContacts, getFilter } from './redux/selectors';
-import { setFilter } from './redux/filterSlice'; // Added this line
-import Layout  from './Layout/Layout';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import css from './Layout/Title.module.css';
+import React from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { SharedLayout } from './pages/SharedLayout';
+import { RegisterPage } from './pages/RegisterPage';
+import { ContactsPage } from './pages/ContactsPage';
+import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { HomePage } from './pages/HomePage';
+import { useDispatch } from 'react-redux';
+import { useAuth } from './redux/hooks/useAuth';
+import { useEffect } from 'react';
+import { refreshUser } from '../components/redux/auth/authOperations';
+import { LoginPage } from './pages/LoginPage';
 
 export const App = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    dispatch(refreshUser());
+    navigate('/contacts');
+  }, [dispatch, navigate]);
 
-  const handleAddContact = newContact => {
-    dispatch(addContacts(newContact));
-  };
-
-  const handleDeleteContact = id => {
-    dispatch(deleteContacts(id));
-  };
-
-  const handleSetFilter = newFilter => {
-    dispatch(setFilter(newFilter)); // Dispatch setFilter action
-  };
-
-  // Calculate filtered contacts directly within the App component
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
-  return (
-    <Layout>
-        <ContactForm addContact={handleAddContact} contacts={contacts} />
-      <h2 className={css.Title2}>Contacts</h2>
-      <Filter filter={filter} setFilter={handleSetFilter} />
-      <ContactList
-        contacts={filteredContacts} // Passing the filteredContacts as prop
-        deleteContact={handleDeleteContact}
-      />
-    </Layout>
+  return isRefreshing ? (
+    <h1>Refreshing user... Please wait...</h1>
+  ) : (
+    <>
+      <Routes>
+        <Route path="/"  element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                component={RegisterPage}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={ContactsPage} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="/logout"
+            element={<PrivateRoute component={HomePage} redirectTo="/" />}
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };
