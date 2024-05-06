@@ -2,13 +2,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
-// Action Types
-// export const ADD_CONTACT = 'contacts/addContact';
-// export const DELETE_CONTACT = 'contacts/deleteContact';
-// export const SET_FILTER = 'filters/setFilter';
-
-// Action Creators
-
 // Adds a new contact
 // createAction takes a type and an optional payload creator function. For addContact, we're using
 // a payload creator function to include the ID generation logic.

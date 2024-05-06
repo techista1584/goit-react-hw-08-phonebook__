@@ -9,7 +9,8 @@ import { HomePage } from './pages/HomePage';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './redux/hooks/useAuth';
 import { useEffect } from 'react';
-import { refreshUser } from '../components/redux/auth/authOperations';
+import { refreshUser } from './redux/auth/authOperations';
+
 import { LoginPage } from './pages/LoginPage';
 
 export const App = () => {
