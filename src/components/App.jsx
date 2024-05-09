@@ -1,17 +1,16 @@
 import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { SharedLayout } from './pages/SharedLayout';
+import { HomePage } from './pages/HomePage';
+import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
-import { HomePage } from './pages/HomePage';
 import { useDispatch } from 'react-redux';
 import { useAuth } from './redux/hooks/useAuth';
 import { useEffect } from 'react';
 import { refreshUser } from './redux/auth/authOperations';
-
-import { LoginPage } from './pages/LoginPage';
 
 export const App = () => {
   const dispatch = useDispatch();
