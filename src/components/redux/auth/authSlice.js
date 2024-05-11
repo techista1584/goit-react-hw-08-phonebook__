@@ -26,6 +26,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isError = true;
       })
+
       .addCase(login.pending, (state, _action) => {
         state.isLoading = true;
       })
@@ -38,6 +39,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isError = true;
       })
+
       .addCase(logout.pending, (state, _action) => {
         state.isLoading = true;
       })
@@ -50,6 +52,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isError = true;
       })
+      
       .addCase(refreshUser.pending, (state, _action) => {
         state.isLoading = true;
         state.isRefreshing = true;

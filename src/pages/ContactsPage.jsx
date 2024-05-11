@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts } from '../redux/operations';
-import { setFilter } from '../redux/filterSlice';
-import { addContact, deleteContact } from '../redux/actions';
+import { fetchContacts } from '../components/redux/operations';
+import { setFilter,addContact, deleteContact } from '../components/redux/actions';
 import {
   selectVisibleContacts,
   selectIsLoading,
   selectFilter,
   selectError,
-} from '../redux/selectors';
+} from '../components/redux/selectors';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';

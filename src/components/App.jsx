@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { SharedLayout } from './pages/SharedLayout';
-import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { ContactsPage } from './pages/ContactsPage';
+import { SharedLayout } from '../pages/SharedLayout';
+import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
+import { ContactsPage } from '../pages/ContactsPage';
 import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
@@ -36,7 +36,8 @@ export const App = () => {
         <Route
           path="/register"
           element={<RestrictedRoute component={RegisterPage} redirectTo="/register" />}
-        />
+          />
+          
         <Route
           path="/login"
           element={<RestrictedRoute component={LoginPage} redirectTo="/login" />}
